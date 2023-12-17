@@ -1,14 +1,11 @@
-
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <header>
-        <h1>Tuxler VPN</h1>
-        <p>Compre su membresía ahora y proteja su privacidad en línea.</p>
-        <img src="https://i.ibb.co/VtJ9GRs/tuxler-icon.png" alt="tuxler-icon" border="0">
-    </header>
+    <link rel="icon" href="https://i.ibb.co/dr2ssX4/icon-redonde-liviano.webp" type="image/x-icon">
+    <link rel="shortcut icon" href="https://i.ibb.co/dr2ssX4/icon-redonde-liviano.webp" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://i.ibb.co/dr2ssX4/icon-redonde-liviano.webp">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -26,21 +23,66 @@
             text-align: center;
             padding: 20px;
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* Cambiado a diseño de columna */
             align-items: center;
         }
 
         header img {
-            max-width: 100%; /* Hace que la imagen se ajuste al ancho del contenedor */
+            max-width: 100%;
             height: auto;
             margin-top: 10px;
-            border-radius: 25px; /* Bordes redondos */
+            border-radius: 25px;
+        }
+
+        /* Menú desplegable de idiomas */
+        .idioma-selector {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+            background-color: #0CE2B2;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .idioma-selector:hover {
+            background-color: #333;
+        }
+
+        .idioma-menu {
+            display: none;
+            position: absolute;
+            top: 100%; /* Alinea el menú por debajo del botón */
+            right: 0;
+            background-color: #333;
+            min-width: 160px;
+            border-radius: 5px;
+        }
+
+        .idioma-menu a {
+            color: #fff;
+            padding: 12px 16px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .idioma-menu a:hover {
+            background-color: #0CE2B2;
+        }
+
+        .idioma-selector:hover .idioma-menu {
+            display: block;
         }
 
         nav {
             text-align: center;
             background-color: #444;
             padding: 10px 0;
+            z-index: 1; /* Añadido un índice z para posicionar sobre el contenido */
         }
 
         nav a {
@@ -48,43 +90,6 @@
             text-decoration: none;
             margin: 0 15px;
             font-weight: bold;
-        }
-
-        nav a.tutorials {
-            /* Estilos específicos para el enlace de tutoriales si es necesario */
-        }
-
-        .features, .pricing, .purchase, .licenses, .guide {
-            padding: 40px;
-        }
-
-        .licenses {
-            text-align: center;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .licenses h2 {
-            width: 100%;
-            margin-bottom: 20px;
-        }
-
-        .license-button {
-            background-color: #4CAF50;
-            color: #fff;
-            padding: 15px 30px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 10px;
-            text-decoration: none;
-            flex: 0 0 calc(20% - 20px); /* 5 botones por fila, con 20px de espacio entre ellos */
-        }
-
-        .license-button:hover {
-            background-color: #45a049;
         }
 
         footer {
@@ -95,12 +100,12 @@
             margin-top: auto;
         }
 
-	#cuadro-container {
-    	    display: flex;
+        #cuadro-container {
+            display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Ocupar toda la altura disponible para centrar verticalmente */
-	}
+            flex-direction: column;
+        }
 
         #cuadro {
             background-color: #fff;
@@ -109,61 +114,83 @@
             text-align: center;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin: 20px;
-	    width: 80%; /* Cambiado el ancho al 80% del contenedor padre */
-    	    max-width: 600px;
+            width: 80%;
+            max-width: 400px;
         }
 
         #enlaceBoton {
             display: inline-block;
-            margin-top: 15px;
             padding: 10px 20px;
             background-color: #0CE2B2;
             color: #fff;
             text-decoration: none;
             border-radius: 5px;
-	    font-size: 14px; /* Ajusta el tamaño de la fuente según sea necesario */
+            font-size: 14px;
             font-weight: bold;
+            margin-bottom: 20px;
         }
 
         #enlaceBoton:hover {
             background-color: #333;
         }
 
-        @media only screen and (max-width: 600px) {
-            .features, .pricing, .purchase, .licenses, .guide {
-                padding: 20px;
-            }
+        #imagenDerecha {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
 
-            .license-button {
-                flex: 0 0 calc(40% - 20px); /* 2 botones por fila en dispositivos móviles, con 20px de espacio entre ellos */
-            }
+        #textoVendedores {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 25px;
         }
     </style>
 </head>
 <body>
-    
+    <header>
+        <h1>Tuxler VPN</h1>
+        <p>Buy your membership now and protect your online privacy.</p>
+        <img src="https://i.ibb.co/VtJ9GRs/tuxler-icon.png" alt="tuxler-icon" border="0">
+
+        <!-- Menú desplegable de idiomas -->
+        <div class="idioma-selector">
+            Choose language
+            <div class="idioma-menu">
+                <a href="#" lang="es">Español</a>
+                <a href="#" lang="en">English</a>
+                <!-- Agrega más idiomas según sea necesario -->
+            </div>
+        </div>
+    </header>
 
     <nav>
-        <a href="https://tuxlerseller.com/" target="_blank">Inicio</a>
-        <a href="http://tutorial.tuxlerseller.com/" target="_blank">Como Usar</a>
-        <a href="#">Revendedores</a>
+        <a href="https://tuxlerseller.com/" target="_blank">Home</a>
+        <a href="http://tutorial.tuxlerseller.com/" target="_blank">How to use</a>
+        <a href="#">Resellers</a>
         <a href="#">FAQ</a>
     </nav>
 
-    <div id="cuadro">
-	<h3>VERSION PREMIUM</h3>
-	<h3>$5.99/Mensual</h3><br>
-        <li>4X MAS RAPIDO QUE LA VERSION GRATIS.</li><br>
-	<li>CONEXION ILIMITADA.</li><br>
-	<li>CONEXIONES SEGURAS.</li><br>
-	<li>100 CAMBIOS DIARIOS DE UBICACIONES.</li><br>
-	<li>70.000+ IP FRESCAS CADA MES.</li><br>
-	<li>ACCESO A TODAS LAS UBICACIONES.</li><br>
-        <a id="enlaceBoton" href="https://tuxlerpremium.mysellix.io/product/6578ec27150f5" target="_blank">COMPRAR MEMBRESIA PREMIUM</a>
+    <div id="cuadro-container">
+        <div id="cuadro">
+            <h3>PREMIUM VERSION</h3>
+            <h3>$5.99/Monthly</h3><br>
+            <li>4X FASTER THAN THE FREE VERSION.</li><br>
+            <li>UNLIMITED CONNECTIONS.</li><br>
+            <li>SECURE CONNECTIONS.</li><br>
+            <li>100 DAILY LOCATION CHANGES.</li><br>
+            <li>70,000+ FRESH IPs EVERY MONTH.</li><br>
+            <li>ACCESS TO ALL LOCATIONS.</li><br>
+            <a id="enlaceBoton" href="https://tuxlerpremium.mysellix.io/product/6578ec27150f5" target="_blank">BUY PREMIUM MEMBERSHIP</a>
+        </div>
+
+        <img id="imagenDerecha" src="https://i.ibb.co/rsqDzYG/tuxlerbadge-nobackground-1024x341.webp" alt="tuxlerbadge-nobackground-1024x341" border="0">
     </div>
 
+    <h2 id="textoVendedores" lang="en">You can confirm that we are official sellers <a href="https://www.tuxlervpn.com/reseller736-tuxlersellercom/" target="_blank">HERE</a>.</h2>
+
     <footer>
-        <p>&copy; 2023 Tuxler VPN. Todos los derechos reservados.</p>
+        <p lang="en">&copy; 2023 Tuxler VPN. All rights reserved.</p>
     </footer>
 </body>
 </html>
