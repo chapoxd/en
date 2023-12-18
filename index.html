@@ -34,49 +34,26 @@
             border-radius: 25px;
         }
 
-        /* Menú desplegable de idiomas */
-        .idioma-selector {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            cursor: pointer;
-            background-color: #0CE2B2;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
+         .idioma-selector {
+      display: none;
+  }
 
-        .idioma-selector:hover {
-            background-color: #333;
-        }
+    /* Botón de cambio de idioma */
+    #cambiarEspanol {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #0CE2B2;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 20px;
+  }
 
-        .idioma-menu {
-            display: none;
-            position: absolute;
-            top: 100%; /* Alinea el menú por debajo del botón */
-            right: 0;
-            background-color: #333;
-            min-width: 160px;
-            border-radius: 5px;
-        }
-
-        .idioma-menu a {
-            color: #fff;
-            padding: 12px 16px;
-            display: block;
-            text-decoration: none;
-        }
-
-        .idioma-menu a:hover {
-            background-color: #0CE2B2;
-        }
-
-        .idioma-selector:hover .idioma-menu {
-            display: block;
-        }
+    #cambiarEspanol:hover {
+      background-color: #333;
+  }
 
         nav {
             text-align: center;
@@ -153,15 +130,7 @@
         <p>Buy your membership now and protect your online privacy.</p>
         <img src="https://i.ibb.co/VtJ9GRs/tuxler-icon.png" alt="tuxler-icon" border="0">
 
-        <!-- Menú desplegable de idiomas -->
-        <div class="idioma-selector">
-            Choose language
-            <div class="idioma-menu">
-                <a href="#" lang="es">Español</a>
-                <a href="#" lang="en">English</a>
-                <!-- Agrega más idiomas según sea necesario -->
-            </div>
-        </div>
+        <a href="https://tuxlerseller.com" id="cambiarEspanol" style="position: fixed; right: 0;">Cambiar a español</a>
     </header>
 
     <nav>
